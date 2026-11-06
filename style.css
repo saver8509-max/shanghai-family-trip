@@ -8,3 +8,5 @@
 /* 자연사박물관 개별 화석 오디오 */
 .fossil-list{display:grid;gap:18px}.fossil-card{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}.fossil-head{padding:20px 22px 8px}.fossil-head h3{margin:7px 0;font-size:21px}.fossil-copy{padding:0 22px 22px}.fossil-copy p{line-height:1.85;font-size:15px;color:#405765}.fossil-question{padding:12px 15px;background:#f1f6f4;border-radius:10px}.fossil-question strong{display:block;margin-bottom:4px}.fossil-audio{margin-top:17px;padding:14px 16px;background:#eef3f6;border-radius:12px}.fossil-audio strong{display:block;font-size:14px}.fossil-audio audio{width:100%;display:block;margin-top:10px}
 @media(max-width:560px){.fossil-head{padding:17px 16px 7px}.fossil-copy{padding:0 16px 17px}.fossil-head h3{font-size:19px}.fossil-copy p{font-size:14px}}
+
+.fossil-photo{display:block;width:100%;max-height:420px;object-fit:contain;background:#f3f5f5;margin:8px 0 16px;border-radius:10px}
