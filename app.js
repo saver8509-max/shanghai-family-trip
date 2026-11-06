@@ -29,7 +29,42 @@ function wukangGuide(){
  return `<section class="gov-guide" id="wukang-guide"><div class="gov-hero"><span class="tag">FAMILY AUDIO GUIDE · 11월 16일</span><h2>시간이 멈춘 듯한 거리, 우캉맨션과 우캉루</h2><p>배를 닮은 건물과 100년의 이야기가 남은 산책길</p><audio controls preload="metadata" aria-label="우캉맨션과 우캉루 한국어 오디오 가이드"><source src="audio/wukang.m4a" type="audio/mp4">오디오를 재생할 수 없는 브라우저입니다.</audio><div class="muted">우캉맨션 앞에서 재생을 시작해 우캉루를 걸으며 들어보세요.</div></div><h3 class="gov-heading">사진으로 보는 우캉맨션·우캉루</h3><div class="history-gallery"><figure class="history-photo"><img src="images/wukang/mansion.jpg" alt="배의 앞머리를 닮은 우캉맨션 건물" loading="lazy"><figcaption>우캉맨션 · 배처럼 길고 뾰족한 건물<span>사진: 사용자 제공 이미지</span></figcaption></figure><figure class="history-photo"><img src="images/wukang/road.jpg" alt="가로수와 오래된 건물이 이어진 우캉루 거리" loading="lazy"><figcaption>우캉루 · 가로수와 근대 건축물이 이어지는 산책길<span>사진: 사용자 제공 이미지</span></figcaption></figure></div><details class="gov-details"><summary>📖 어린이 해설 내용 보기</summary><div class="gov-text"><p>우캉맨션은 뾰족한 끝부분이 배의 앞머리를 닮은 상하이의 유명한 건물입니다. 약 100년 전에 지어진 8층짜리 아파트로 지금도 사람들이 살고 있습니다.</p><p>헝가리 출신 건축가 라슬로 후데츠가 설계했으며, 처음에는 노르망디 아파트라고 불렸습니다. 1953년부터 우캉맨션이라는 이름을 사용했습니다.</p><p>붉은 벽돌과 둥근 아치, 길게 이어진 발코니를 관찰해 보세요. 옛날 상하이에는 여러 나라 사람들이 모여 살아 유럽풍 건물이 많이 지어졌습니다.</p><p>우캉루는 오래된 건물과 커다란 가로수가 어우러진 거리입니다. 중국의 유명한 작가 바진이 살았던 집도 있으며, 옛 건물을 활용한 카페와 작은 상점, 갤러리도 만날 수 있습니다.</p><p>가족과 천천히 걸으며 가장 마음에 드는 건물을 찾아보세요. 약 100년 전 상하이의 모습을 상상해 보는 것도 좋겠습니다.</p></div></details><details class="gov-details"><summary>📚 어려운 단어 풀이</summary><div class="glossary">${terms.map(([a,b])=>`<div class="gloss-item"><strong>${e(a)}</strong><p>${e(b)}</p></div>`).join('')}</div></details><div class="gov-source"><strong>자료 출처</strong><p>건축·거리 정보: <a href="https://www.meet-in-shanghai.net/en/xuhui-district/wukang-mansion-428331/" target="_blank" rel="noopener">상하이 공식 관광 홈페이지 · 우캉맨션</a>, <a href="https://english.shanghai.gov.cn/en-ScenicSpots/20231218/596192f5f59048bbbc3fa54d92304e93.html" target="_blank" rel="noopener">상하이시 정부 · 우캉루</a></p><p>사진: 사용자 제공 이미지 2장 · 공개 배포 시 원본 사진의 저작권 및 사용 조건 확인 필요</p><p class="muted">사진 파일은 홈페이지에 포함되어 있습니다. 오디오: 가족 여행용 한국어 해설 음성</p></div></section>`;
 }
 
-function places(){return `${title('관광지 · 오디오 가이드','관광지별 설명과 오디오를 모았습니다. 임시정부·훙커우 공원·우캉맨션의 한국어 오디오 해설을 들을 수 있습니다.')}<div class="grid">${TRIP.places.map(p=>`<article class="card"><span class="tag">TRAVEL SPOT</span><h3>${e(p.name)}</h3><div class="cn">${e(p.cn)}</div><p>${e(p.desc)}</p><div class="actions">${btnCopy(p.cn,'중국어 복사')}${mapBtn(p.search)}${p.audio==='government.m4a'?'<a class="btn primary" href="#government-guide">자세히 알아보기</a>':''}${p.name.includes('루쉰')||p.name.includes('훙커우')?'<a class="btn primary" href="#hongkou-guide">자세히 알아보기</a>':''}${p.audio==='wukang.m4a'?'<a class="btn primary" href="#wukang-guide">자세히 알아보기</a>':''}</div></article>`).join('')}</div>${governmentGuide()}${hongkouGuide()}${wukangGuide()}`}
+
+function museumGuide(){
+ const fossils=[
+ {id:'mamenchisaurus',name:'마멘치사우루스',cn:'马门溪龙',subtitle:'목이 긴 공룡의 비밀',
+ paragraphs:[
+ '목이 아주 긴 초식 공룡입니다. 중국에서 발견된 마멘치사우루스는 거대한 몸과 매우 긴 목으로 유명합니다. 일부 종류는 목 길이만 10미터가 넘었을 것으로 추정됩니다.',
+ '이곳에서 소개하는 마멘치사우루스의 골격은 많은 뼈가 보존되었지만 머리뼈가 발견되지 않아, 오랫동안 다른 공룡의 머리뼈를 참고한 모형을 사용했습니다. 2026년에는 새로운 연구를 바탕으로 머리 모형을 다시 복원했다는 소식이 전해졌습니다.',
+ '과학자들은 새로운 증거가 나타나면 기존의 설명과 복원 모습을 고치기도 합니다. 그래서 이 화석은 공룡뿐 아니라 과학이 발전하는 방법도 보여줍니다.'],
+ question:'몸에 비해 머리가 얼마나 작은지, 긴 목을 어떻게 지탱했을지 관찰해 보세요.'},
+ {id:'ancient-elephant',name:'황허고상',cn:'黄河古象',subtitle:'거대한 옛날 코끼리',
+ paragraphs:[
+ '아주 오래전 중국에 살았던 코끼리의 친척입니다. 황허는 중국의 큰 강 이름이고, 고상은 옛날 코끼리라는 뜻입니다.',
+ '이 동물은 길고 커다란 상아가 특징입니다. 상아는 코끼리의 입 양쪽에서 길게 뻗어 나오는 이빨입니다. 먹이를 구하거나 몸을 보호하는 데 도움이 되었을 것으로 생각됩니다.',
+ '과학자들은 화석으로 남은 뼈와 이빨을 조사해 옛날 동물의 크기와 생김새를 알아냅니다. 오늘날 코끼리와 비교하면 어떤 특징이 비슷하고 다른지도 연구할 수 있습니다.'],
+ question:'커다란 상아와 다리, 몸의 크기를 오늘날 코끼리와 비교해 보세요.'},
+ {id:'haikouichthys',name:'하이커우이크티스',cn:'海口鱼',subtitle:'5억 년 전 물고기의 비밀',
+ paragraphs:[
+ '약 5억 년 전 바다에 살았던 작고 오래된 물고기와 비슷한 생물입니다. 크기는 손가락만 한 정도였지만 척추동물의 아주 초기 모습을 연구하는 데 중요한 화석입니다.',
+ '척추동물은 몸을 지탱하는 등뼈가 있거나 그와 관련된 구조를 가진 동물입니다. 물고기, 개구리, 새, 강아지, 사람도 척추동물입니다.',
+ '사람과 물고기는 모습이 아주 다르지만, 먼 옛날로 거슬러 올라가면 공통 조상을 가지고 있습니다. 이 작은 화석은 생물이 오랜 세월 어떻게 변화해 왔는지 알려 주는 단서입니다.'],
+ question:'작은 몸에서 머리와 꼬리의 흔적을 찾아보세요.',
+ note:'특별전 전시 자료입니다. 별도 관람 조건과 실제 전시 위치를 확인하세요.'},
+ {id:'anchiornis',name:'안키오르니스',cn:'近鸟龙',subtitle:'깃털을 가진 공룡',
+ paragraphs:[
+ '약 1억 6천만 년 전 살았던 닭만 한 크기의 작은 공룡입니다. 놀랍게도 이 공룡의 화석에서는 깃털의 흔적이 발견되었습니다.',
+ '과학자들은 깃털에 남은 아주 작은 흔적을 연구해 검은색과 흰색 무늬, 머리의 붉은빛 깃털이 있었을 것으로 추정했습니다.',
+ '오늘날의 새는 공룡의 한 무리에서 이어져 내려온 동물입니다. 참새나 비둘기를 보면 먼 옛날 공룡의 후손이라는 사실을 떠올려 보세요.'],
+ question:'공룡의 깃털과 새의 깃털은 어떻게 닮았을까요?',
+ note:'2026년 11월 상하이 자연사박물관 전시 여부는 확인되지 않았습니다. 사진이나 다른 자료와 함께 들어보세요.'}
+ ];
+ const terms=[['화석','오래전 생물의 몸이나 흔적이 돌 등에 남은 것'],['표본','관찰하고 연구할 수 있도록 보존한 자료'],['진화','생물이 여러 세대에 걸쳐 변화하는 과정'],['척추동물','등뼈가 있거나 그와 관련된 몸 구조를 가진 동물'],['멸종','어떤 종류의 생물이 지구에서 완전히 사라지는 것']];
+ const fossilCards=fossils.map((f,i)=>`<article class="fossil-card" id="fossil-${f.id}"><div class="fossil-head"><span class="tag">화석 탐험 ${i+1}</span><h3>${e(f.name)} — ${e(f.subtitle)}</h3><div class="cn">${e(f.cn)}</div></div><div class="fossil-copy">${f.paragraphs.map(t=>`<p>${e(t)}</p>`).join('')}<p class="fossil-question"><strong>🔎 아이들과 볼 점</strong> ${e(f.question)}</p>${f.note?`<p class="muted">※ ${e(f.note)}</p>`:''}<div class="fossil-audio"><strong>🎧 ${e(f.name)} 오디오 해설</strong><audio controls preload="metadata" aria-label="${e(f.name)} 오디오 해설"><source src="audio/${f.id}.m4a" type="audio/mp4">오디오를 재생할 수 없는 브라우저입니다.</audio></div></div></article>`).join('');
+ return `<section class="gov-guide" id="museum-guide"><div class="gov-hero"><span class="tag">FAMILY MUSEUM GUIDE · 11월 15일</span><h2>상하이 자연사박물관, 지구 생명의 비밀을 찾아서</h2><p>공룡과 화석을 찾아 떠나는 어린이 탐험</p><audio controls preload="metadata" aria-label="상하이 자연사박물관 전체 오디오 가이드"><source src="audio/museum.m4a" type="audio/mp4">오디오를 재생할 수 없는 브라우저입니다.</audio><div class="muted">먼저 박물관 전체 이야기를 듣고, 아래에서 관심 있는 화석의 해설을 따로 들어보세요.</div></div><h3 class="gov-heading">특별히 볼 만한 화석과 전시물</h3><p class="subtitle">화석별로 자세한 설명과 개별 오디오를 준비했습니다. 전시 위치와 운영 여부는 방문 당일 확인하세요.</p><div class="fossil-list">${fossilCards}</div><details class="gov-details"><summary>📚 어려운 단어 풀이</summary><div class="glossary">${terms.map(([a,b])=>`<div class="gloss-item"><strong>${e(a)}</strong><p>${e(b)}</p></div>`).join('')}</div></details><div class="gov-source"><strong>관람 참고</strong><p>하이커우이크티스는 특별전 관람 조건을 확인하세요. 안키오르니스는 현장 전시 여부가 확인되지 않았습니다.</p><p>자료 참고: <a href="https://www.snhm.org.cn/" target="_blank" rel="noopener">상하이 자연사박물관 공식 홈페이지</a></p><p>화석별 사진은 정확한 원본과 사용 조건을 확인한 뒤 추가할 예정입니다. 현재는 잘못된 사진이 표시되지 않도록 생략했습니다.</p></div></section>`;
+}
+
+function places(){return `${title('관광지 · 오디오 가이드','관광지별 설명과 오디오를 모았습니다. 임시정부·훙커우 공원·우캉맨션과 자연사박물관의 오디오 해설을 들을 수 있습니다.')}<div class="grid">${TRIP.places.map(p=>`<article class="card"><span class="tag">TRAVEL SPOT</span><h3>${e(p.name)}</h3><div class="cn">${e(p.cn)}</div><p>${e(p.desc)}</p><div class="actions">${btnCopy(p.cn,'중국어 복사')}${mapBtn(p.search)}${p.name==='상하이 자연사박물관'?'<a class="btn primary" href="#museum-guide">자세히 알아보기</a>':''}${p.audio==='government.m4a'?'<a class="btn primary" href="#government-guide">자세히 알아보기</a>':''}${p.name.includes('루쉰')||p.name.includes('훙커우')?'<a class="btn primary" href="#hongkou-guide">자세히 알아보기</a>':''}${p.audio==='wukang.m4a'?'<a class="btn primary" href="#wukang-guide">자세히 알아보기</a>':''}</div></article>`).join('')}</div>${governmentGuide()}${hongkouGuide()}${wukangGuide()}${museumGuide()}`}
 
 function shopping(){return `${title('난징동루 쇼핑 가이드','11월 15일 오후 · 캐릭터, 피규어, 블록, 간식. 매장 위치와 운영 여부는 방문 전 재확인하세요.')}<div class="grid">${TRIP.shops.map(s=>`<article class="card"><span class="tag">${e(s.tag)}</span><h3>${e(s.name)}</h3><div class="cn">${e(s.cn)}</div><p>${e(s.desc)}</p><div class="actions">${btnCopy(s.cn,'상호 복사')}${btnCopy(s.search,'검색어 복사')}${mapBtn(s.search)}</div></article>`).join('')}</div>`}
 function food(){const kinds=['전체','식당','디저트','카페'];return `${title('상하이 맛집 · 카페','블로그에서 모은 16곳 · 확정 예약이 아닌 방문 후보입니다. 가까운 지점만 정리했으며, 미확인 정보는 표시했습니다.')}<div class="day-tabs">${kinds.map((k,i)=>`<button class="${i===0?'active':''}" data-food-filter="${e(k)}">${e(k)}</button>`).join('')}</div><div class="grid" id="food-grid">${TRIP.foods.map((f,i)=>foodCard(f,i)).join('')}</div><div class="notice">매장 주소·운영시간·입점 여부는 방문 직전 고덕지도에서 다시 확인하세요. 아직 확인되지 않은 식당은 주소를 임의로 넣지 않았습니다.</div>`}
