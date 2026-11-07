@@ -67,10 +67,10 @@ function museumGuide(){
 
 function bundGuide(){
  const imgs=[
- ['동방명주와 푸둥 야경','2014.11.15.193354_Oriental_Pearl_Tower_at_night_Pudong_Shanghai.jpg','구슬 모양의 동방명주와 높은 빌딩을 찾아보세요.','Hermann Luyken · CC0'],
- ['상하이 세관의 시계탑','The_Customs_House_Shanghai_Night_View.JPG','1927년에 완공된 시계탑을 찾아보세요.','Marcushsu · Wikimedia Commons'],
- ['허핑호텔(평화호텔)','Peace_Hotel_and_Bank_of_China_Building_Shanghai_at_night_20260417.jpg','녹색 피라미드 지붕을 찾아보세요.','DvTor8303 · CC0']];
- const gallery=imgs.map(([name,file,desc,credit])=>`<figure class="history-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/${file}?width=960" alt="${e(name)}" loading="lazy"><figcaption>${e(name)}<span>${e(desc)}</span><span>사진: ${e(credit)} · <a href="https://commons.wikimedia.org/wiki/File:${file}" target="_blank" rel="noopener">원본·출처</a></span></figcaption></figure>`).join('');
+ ['허핑호텔(평화호텔)','images/bund/peace-hotel.jpg','녹색 피라미드 모양의 지붕을 찾아보세요. 뒤편에 동방명주도 보입니다.'],
+ ['동방명주와 푸둥 야경','images/bund/pudong-night.jpg','구슬 모양의 동방명주와 가장 높은 상하이타워를 찾아보세요.'],
+ ['상하이 세관의 시계탑','images/bund/customs-clock.jpg','1927년에 완공된 시계탑과 강변의 옛 건물을 살펴보세요.']];
+ const gallery=imgs.map(([name,file,desc])=>`<figure class="history-photo"><a href="${file}" target="_blank" rel="noopener" aria-label="${e(name)} 사진 크게 보기"><img src="${file}" alt="${e(name)}" loading="lazy"></a><figcaption>${e(name)}<span>${e(desc)}</span><span>사용자 제공 사진 · 사진을 누르면 크게 볼 수 있습니다.</span></figcaption></figure>`).join('');
  const paragraphs=[
  '와이탄은 황푸강을 따라 이어진 산책로입니다. 강을 사이에 두고 약 100년 전의 상하이와 오늘날의 상하이를 한눈에 볼 수 있습니다.',
  '강 건너편은 푸둥입니다. 구슬을 여러 개 끼운 듯한 동방명주는 1994년에 완공된 방송탑입니다. 높이 632미터의 상하이타워도 찾아보세요. 푸둥은 1990년대부터 빠르게 개발되었습니다.',
@@ -80,7 +80,7 @@ function bundGuide(){
  '가장 높은 건물, 가장 독특한 모양의 건물, 가장 오래되어 보이는 건물을 가족과 함께 찾아보세요. 와이탄에서 상하이의 과거와 현재를 함께 만나 보세요.'
  ];
  const terms=[['무역','나라와 나라 사이에 물건을 사고파는 일'],['세관','외국에서 드나드는 물건을 검사하는 곳'],['초고층 빌딩','아주 높게 지은 건물'],['보존','오래된 것을 사라지지 않도록 지키는 일']];
- return `<section class="gov-guide" id="bund-guide"><div class="gov-hero"><span class="tag">FAMILY AUDIO GUIDE · 11월 14~15일</span><h2>와이탄, 과거와 미래가 만나는 상하이의 밤</h2><p>황푸강 양쪽의 옛 건물과 현대적인 야경</p><audio controls preload="metadata" aria-label="와이탄 오디오 가이드"><source src="audio/bund.m4a" type="audio/mp4">오디오를 재생할 수 없는 브라우저입니다.</audio><div class="muted">11월 15일 와이탄 산책 또는 14일 황푸강 유람선에서 들으세요. 앞·뒤 표현은 강변 산책로 기준입니다.</div></div><h3 class="gov-heading">사진으로 보는 와이탄</h3><div class="history-gallery">${gallery}</div><p class="muted">사진은 Wikimedia Commons에서 온라인으로 불러옵니다. 중국 현지에서 사진 연결이 제한될 수 있습니다.</p><details class="gov-details"><summary>📖 어린이 해설 내용 보기</summary><div class="gov-text">${paragraphs.map(x=>`<p>${e(x)}</p>`).join('')}</div></details><details class="gov-details"><summary>📚 어려운 단어 풀이</summary><div class="glossary">${terms.map(([a,b])=>`<div class="gloss-item"><strong>${e(a)}</strong><p>${e(b)}</p></div>`).join('')}</div></details></section>`;
+ return `<section class="gov-guide" id="bund-guide"><div class="gov-hero"><span class="tag">FAMILY AUDIO GUIDE · 11월 14~15일</span><h2>와이탄, 과거와 미래가 만나는 상하이의 밤</h2><p>황푸강 양쪽의 옛 건물과 현대적인 야경</p><audio controls preload="metadata" aria-label="와이탄 오디오 가이드"><source src="audio/bund.m4a" type="audio/mp4">오디오를 재생할 수 없는 브라우저입니다.</audio><div class="muted">11월 15일 와이탄 산책 또는 14일 황푸강 유람선에서 들으세요. 앞·뒤 표현은 강변 산책로 기준입니다.</div></div><h3 class="gov-heading">사진으로 보는 와이탄</h3><div class="history-gallery">${gallery}</div><p class="muted">사진 3장은 홈페이지에 직접 저장되어 있어 오프라인에서도 볼 수 있습니다.</p><details class="gov-details"><summary>📖 어린이 해설 내용 보기</summary><div class="gov-text">${paragraphs.map(x=>`<p>${e(x)}</p>`).join('')}</div></details><details class="gov-details"><summary>📚 어려운 단어 풀이</summary><div class="glossary">${terms.map(([a,b])=>`<div class="gloss-item"><strong>${e(a)}</strong><p>${e(b)}</p></div>`).join('')}</div></details></section>`;
 }
 
 function places(){return `${title('관광지 · 오디오 가이드','관광지별 설명과 오디오를 모았습니다. 임시정부·훙커우 공원·우캉맨션·자연사박물관·와이탄의 오디오 해설을 들을 수 있습니다.')}<div class="grid">${TRIP.places.map(p=>`<article class="card"><span class="tag">TRAVEL SPOT</span><h3>${e(p.name)}</h3><div class="cn">${e(p.cn)}</div><p>${e(p.desc)}</p><div class="actions">${btnCopy(p.cn,'중국어 복사')}${mapBtn(p.search)}${p.name==='와이탄 야경'?'<a class="btn primary" href="#bund-guide">자세히 알아보기</a>':''}${p.name==='상하이 자연사박물관'?'<a class="btn primary" href="#museum-guide">자세히 알아보기</a>':''}${p.audio==='government.m4a'?'<a class="btn primary" href="#government-guide">자세히 알아보기</a>':''}${p.name.includes('루쉰')||p.name.includes('훙커우')?'<a class="btn primary" href="#hongkou-guide">자세히 알아보기</a>':''}${p.audio==='wukang.m4a'?'<a class="btn primary" href="#wukang-guide">자세히 알아보기</a>':''}</div></article>`).join('')}</div>${governmentGuide()}${hongkouGuide()}${wukangGuide()}${museumGuide()}${bundGuide()}`}
